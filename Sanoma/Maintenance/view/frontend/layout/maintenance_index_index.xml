@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Romano van Kempen 2019
+**/
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="maintenance-note">
+            <block class="Sanoma\Maintenance\Block\Maintenance" name="maintenancePage" template="Sanoma_Maintenance::maintenance.phtml" />
+        </referenceContainer>
+    </body>
+</page>

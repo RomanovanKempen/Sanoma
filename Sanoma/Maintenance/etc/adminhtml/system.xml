@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Romano van Kempen 2019
+**/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="sanoma_tab" translate="label" sortOrder="500">
+            <label>Sanoma Extensions</label>
+        </tab>
+        <section id="sanoma" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Maintenance Extension</label>
+            <tab>sanoma_tab</tab>
+            <resource>Sanoma_Maintenance::maintenance</resource>
+            <group id="basic" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Basic</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Extension</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="more" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>More</label>
+                <field id="content_header" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Content Header</label>
+                </field>
+                <field id="content" translate="label" type="textarea" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Content</label>
+                </field>
+            </group>
+            <group id="configurable_cron" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Schedule Settings</label>
+                <field id="schedule_enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Remove banner on schedule?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>             
+                <field id="schedule_date" translate="label" type="date" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Date to stop banner (cron)</label>
+                    <frontend_model>Sanoma\Maintenance\Block\Adminhtml\System\Config\Date</frontend_model>
+                    <depends>
+                        <field id="schedule_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

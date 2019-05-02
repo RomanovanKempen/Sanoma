@@ -1,0 +1,12 @@
+<?php
+/**
+ * Romano van Kempen 2019
+ */
+?>
+
+<?php if( $block->getBasic('enabled') == 1): ?>
+    <div class="banner">
+        <h1><?php echo $block->getContent('content_header') ?></h1>
+        <h3><?php echo $block->getContent('content'); ?></h3>
+    </div>
+<?php endif; 
